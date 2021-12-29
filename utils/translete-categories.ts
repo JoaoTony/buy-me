@@ -1,6 +1,4 @@
-interface Categories {
-  [index: string]: string;
-}
+import { Categories } from '../types/categories.type';
 
 export const CATEGORY = (category: string) => {
   const objCategories: Categories = {

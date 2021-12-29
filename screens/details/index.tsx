@@ -17,7 +17,7 @@ import {
 import { useSwr } from '../../api/useSwr';
 import { CardProps } from '../../types/card.props';
 import Stars from '../../components/starts';
-import { CATEGORY } from './details.utils';
+import { CATEGORY } from '../../utils/translete-categories';
 
 const Details: FC = () => {
   const [product, setProduct] = useState<CardProps>();

@@ -12,6 +12,7 @@ import {
   Raters,
   Category,
 } from './cart.styles';
+import { CATEGORY } from '../../utils/translete-categories';
 
 import { ItemCartProps } from './cart.types';
 
@@ -29,7 +30,7 @@ const CartItem: FC<ItemCartProps> = ({
     </ItemImage>
     <Column>
       <ItemTitle>{title}</ItemTitle>
-      <Category>{category}</Category>
+      <Category>{CATEGORY(category)}</Category>
       <Row>
         <Stars rate={rating.rate} />
         <Raters>
