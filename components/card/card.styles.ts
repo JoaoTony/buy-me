@@ -45,7 +45,8 @@ export const Image = styled.div`
 
 
   img{
-    width: 70%;
+    width: auto;
+    max-width: 80%;
     height: 70%;
 
     transition: all ease-in 0.3s;
@@ -59,7 +60,7 @@ export const Title = styled.p`
   color: #4B537A;
   margin-right: 30px;
 
-  height: 50px;
+  height: 45px;
   overflow: hidden;
   text-overflow: ellipsis;
 

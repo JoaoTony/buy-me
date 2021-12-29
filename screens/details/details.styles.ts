@@ -29,7 +29,8 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 80%;
+  width: auto;
+  max-width: 80%;
   height: 65%;
 
 `;
