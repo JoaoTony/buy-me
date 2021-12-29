@@ -1,4 +1,4 @@
-export interface cardProps {
+export interface CardProps {
   category: string;
   description: string;
   id: number;

@@ -1,17 +1,18 @@
 import { FC } from 'react';
+import Router from 'next/router';
 
 import CustomSwitch from '../custom-switcher';
 import {
-  Nav, Logo, CarBtn, Row,
+  Nav, Logo, CartBtn, Row,
 } from './navbar.styles';
 
 const NavBar: FC<{handleTheme: () => void}> = ({ handleTheme }) => (
   <Nav>
     <Logo>BUYME</Logo>
     <Row>
-      <CarBtn>
+      <CartBtn onClick={() => Router.push('/cart/0')}>
         <img src="/car.png" alt="" />
-      </CarBtn>
+      </CartBtn>
       <CustomSwitch handleTheme={handleTheme} />
     </Row>
   </Nav>

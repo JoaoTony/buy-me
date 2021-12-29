@@ -15,13 +15,13 @@ import {
   Category,
 } from './details.styles';
 import { useSwr } from '../../api/useSwr';
-import { cardProps } from '../../types/card.props';
+import { CardProps } from '../../types/card.props';
 import Stars from '../../components/starts';
 import { CATEGORY } from './details.utils';
 
 const Details: FC = () => {
-  const [product, setProduct] = useState<cardProps>();
-  const { data } = useSwr<Array<cardProps>>('/products');
+  const [product, setProduct] = useState<CardProps>();
+  const { data } = useSwr<Array<CardProps>>('/products');
   const router = useRouter();
 
   useEffect(() => {

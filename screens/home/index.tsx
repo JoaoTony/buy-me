@@ -1,24 +1,24 @@
 import { FC, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { useSelector } from 'react-redux';
 import { Container, CardList, Content } from './home.styles';
 import Navbar from '../../components/navbar';
 import Card from '../../components/card';
-import { IState } from './home.types';
 import { useSwr } from '../../api/useSwr';
-import { cardProps } from '../../types/card.props';
+import { CardProps } from '../../types/card.props';
 import Details from '../details';
+import Cart from '../cart';
 
 const Home: FC<{handleTheme: () => void}> = ({ handleTheme }) => {
-  const { allProducts } = useSelector((state: IState) => state);
-  const { data, loading } = useSwr<Array<cardProps>>('/products');
+  const { data, loading } = useSwr<Array<CardProps>>('/products');
   const [id, setId] = useState<string>();
+  const [page, setPage] = useState<string>();
 
   const router = useRouter();
 
   useEffect(() => {
     setId(router.query.id as string);
+    setPage(router.query.page as string);
   }, [router]);
 
   return (
@@ -26,8 +26,7 @@ const Home: FC<{handleTheme: () => void}> = ({ handleTheme }) => {
       <Navbar handleTheme={handleTheme} />
 
       <Content>
-
-        {!id ? (
+        {!id && !page && (
           <CardList>
             {loading ? (
               <div>carregando...</div>
@@ -42,8 +41,12 @@ const Home: FC<{handleTheme: () => void}> = ({ handleTheme }) => {
             ))}
 
           </CardList>
-        )
-          : <Details />}
+        )}
+
+        {id && page === 'details' && <Details />}
+
+        {page === 'cart' && <Cart />}
+
       </Content>
     </Container>
   );

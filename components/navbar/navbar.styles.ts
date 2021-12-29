@@ -27,13 +27,15 @@ export const Row = styled.div`
   align-items: center;
 `;
 
-export const CarBtn = styled.button`
+export const CartBtn = styled.button`
   padding: 0;
   width: 30px;
   height: 30px;
   border: none;
   background: transparent;
   margin-right: 10px;
+
+  cursor: pointer;
 
   img{
     width: 100%;

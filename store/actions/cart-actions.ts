@@ -1,6 +1,6 @@
 import { actionsType } from '../../constants/redux-actions-types';
 
-export const changeTheme = (theme: any) => ({
-  type: actionsType.CANGE_THEME,
+export const addToCart = (theme: any) => ({
+  type: actionsType.ADD_TO_CART,
   payload: theme,
 });
