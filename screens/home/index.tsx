@@ -51,7 +51,7 @@ const Home: FC<{handleTheme: () => void}> = ({ handleTheme }) => {
           </CardList>
         )}
 
-        {id && page === 'details' && <Details />}
+        {id && page === 'details' && <Details handleAddToCart={handleAddToCart} />}
 
         {page === 'cart' && <Cart />}
 

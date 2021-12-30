@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { FC, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -13,13 +14,14 @@ import {
   Description,
   Raters,
   Category,
+  AddToCarButton,
 } from './details.styles';
 import { useSwr } from '../../api/useSwr';
 import { CardProps } from '../../types/card.props';
 import Stars from '../../components/starts';
 import { CATEGORY } from '../../utils/translete-categories';
 
-const Details: FC = () => {
+const Details: FC<{ handleAddToCart: (_productId: number) => void}> = ({ handleAddToCart }) => {
   const [product, setProduct] = useState<CardProps>();
   const { data } = useSwr<Array<CardProps>>('/products');
   const router = useRouter();
@@ -59,6 +61,10 @@ const Details: FC = () => {
             </span>
           </Price>
           <Description>{product?.description}</Description>
+
+          <AddToCarButton onClick={() => product?.id && handleAddToCart(product?.id)}>
+            Adicionar ao carrinho
+          </AddToCarButton>
         </Column>
       </SelectedContainer>
     </Container>

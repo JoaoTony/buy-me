@@ -2,11 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-
-
   display: flex;
   flex-direction: column;
-
 `;
 
 export const SelectedContainer = styled.div`
@@ -14,6 +11,7 @@ export const SelectedContainer = styled.div`
   display: flex;
   border: 1px solid #F3F3F3;
   border-radius: 12px;
+  position: relative;
 `;
 
 export const ImageWrapper = styled.div`
@@ -90,4 +88,28 @@ export const Column = styled.div`
 export const Row = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const AddToCarButton = styled.button`
+  width: 200px;
+  height: 45px;
+  background: #D570E9;
+  border: none;
+  border-radius: 8px;
+
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  align-self: baseline;
+
+  position: absolute;
+  bottom: 60px;
+
+  cursor: pointer;
+
+  transition: all ease-in 0.2s;
+
+  :hover{
+    opacity: 0.8;
+  }
 `;

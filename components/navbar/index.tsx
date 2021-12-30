@@ -8,7 +8,7 @@ import {
 
 const NavBar: FC<{handleTheme: () => void}> = ({ handleTheme }) => (
   <Nav>
-    <Logo>BUYME</Logo>
+    <Logo onClick={() => Router.push('/')}>BUYME</Logo>
     <Row>
       <CartBtn onClick={() => Router.push('/cart/0')}>
         <img src="/car.png" alt="" />
