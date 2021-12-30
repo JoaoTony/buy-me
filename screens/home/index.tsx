@@ -26,7 +26,7 @@ const Home: FC<{handleTheme: () => void}> = ({ handleTheme }) => {
   useEffect(() => {
     setId(router.query.id as string);
     setPage(router.query.page as string);
-  }, [router]);
+  }, [router, data]);
 
   return (
     <Container>
