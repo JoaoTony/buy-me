@@ -12,8 +12,8 @@ export const Title = styled.h1`
   font-weight: bold;
   color: #4B537A;
 
- margin: 0;
- margin-bottom: 20px;
+  margin: 0;
+  margin-bottom: 20px;
 `;
 
 export const ItemOnCart = styled.div`
@@ -50,16 +50,18 @@ export const Column = styled.div`
 `;
 
 export const ItemTitle = styled.h1`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   color: #4B537A;
 
   margin: 20px;
+  max-width: 70%;
+  margin-right: 100px;
   margin-bottom: 0;
 
 `;
 export const Price = styled.p`
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   margin: 20px;
   right: 20px;
@@ -69,16 +71,19 @@ export const Price = styled.p`
 `;
 
 export const Description = styled.p`
-  font-size: 16px;
+  font-size: 14px;
   max-width: 300px;
+  max-height: 97px;
   font-weight: 500;
-  margin: 10px;
+  margin: 5px;
   margin-left: 20px;
   color: #868CAA;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const Raters = styled.p`
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 500;
   margin: 0;
   margin-left: 10px;
@@ -86,9 +91,9 @@ export const Raters = styled.p`
 `;
 
 export const Category = styled.p`
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 500;
-  margin: 10px 20px;
+  margin: 5px 20px;
   margin-left: 20px;
   color: #D2D7DA ;
 `;
