@@ -1,11 +1,18 @@
 import { FC } from 'react';
 import { wicthStar } from './stars.utls';
 
+import { StarsProps } from './stars.types';
 import { Container, Star } from './stars.styles';
 
-const Stars: FC<{ rate: number}> = ({ rate }) => (
-  <Container>
-    {[0, 1, 2, 3, 4].map((item, index) => <Star key={item} src={wicthStar(rate, index)} />)}
+const Stars: FC<StarsProps> = ({ rate, size }) => (
+  <Container size={size}>
+    {[0, 1, 2, 3, 4].map((item, index) => (
+      <Star
+        key={item}
+        size={size}
+        src={wicthStar(rate, index)}
+      />
+    ))}
   </Container>
 );
 

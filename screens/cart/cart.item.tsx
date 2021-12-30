@@ -32,7 +32,7 @@ const CartItem: FC<ItemCartProps> = ({
       <ItemTitle>{title}</ItemTitle>
       <Category>{CATEGORY(category)}</Category>
       <Row>
-        <Stars rate={rating.rate} />
+        <Stars rate={rating.rate} size={20} />
         <Raters>
           {rating.rate}
           {' '}

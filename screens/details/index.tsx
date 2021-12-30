@@ -39,7 +39,7 @@ const Details: FC = () => {
           && <Category>{CATEGORY(product?.category)}</Category>}
           <Title>{product?.title}</Title>
           <Row>
-            <Stars rate={product?.rating.rate || 0} />
+            <Stars size={22} rate={product?.rating.rate || 0} />
             <Raters>
               {product?.rating.rate}
               {' '}
