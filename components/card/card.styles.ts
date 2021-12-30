@@ -1,20 +1,11 @@
 import styled from 'styled-components';
 
-export const CardContainer = styled.button`
+export const CardContainer = styled.div`
   height: auto;
-  border-radius: 12px;
-  background-color: #fff;
-  border: 1px solid #F3F3F3;
   position: relative;
-  z-index: 2;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-
-  transition: all ease-in 0.3s;
-  cursor: pointer;
+  //z-index: 2;
+  border: none;
+  border-radius: 12px;
 
   &:hover{
     border-color: #fff;
@@ -27,11 +18,31 @@ export const CardContainer = styled.button`
     .text {
       transform: scale(1.06);
     }
+    .price {
+      transform: scale(1.15);
+    }
 
     .addToCar {
       opacity: 1
     }
   }
+`;
+
+export const Content = styled.button`
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid #F3F3F3;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+
+  transition: all ease-in 0.3s;
+  cursor: pointer;
 `;
 
 export const Image = styled.div`

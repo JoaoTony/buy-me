@@ -18,7 +18,7 @@ const INITIAL_STATE: Array<{ id: number }> = [{ id: 8 }, { id: 1 }];
 export const cartReducer = (state = INITIAL_STATE, { type, payload }: any) => {
   switch (type) {
     case actionsType.ADD_TO_CART:
-      return { ...state, ...payload };
+      return [...state, payload];
     default:
       return state;
   }

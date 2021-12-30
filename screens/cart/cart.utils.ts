@@ -1,8 +1,3 @@
-import { GenericObject } from '../../types/generic-object-type';
-
 export const totalPrice = (
-  arr: Array<GenericObject>,
-) => (arr && arr[0] ? arr.reduce((acc, item) => {
-  acc.price += item.price;
-  return acc.price;
-}) : 0);
+  arr: Array<number>,
+) => (arr && arr[0] ? arr.reduce((acc, item) => acc + item) : 0);

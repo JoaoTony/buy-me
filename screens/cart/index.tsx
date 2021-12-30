@@ -44,7 +44,7 @@ const Cart: FC = () => {
         Preço total:
         {' $'}
         {cartData && cartData[0]
-          ? totalPrice(cartData?.map((item) => ({ price: item?.price }))) : 0}
+          ? totalPrice(cartData?.map((item) => item.price)) : 0}
       </TotalPrice>
 
     </Container>
