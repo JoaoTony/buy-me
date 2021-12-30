@@ -15,11 +15,14 @@ export const Nav = styled.nav`
   transition: all ease-in 0.3s;
 `;
 
-export const Logo = styled.h1`
+export const Logo = styled.button`
   color: ${({ theme }) => theme.colors.logo};
   font-size: 30px;
   font-weight: 900;
   transition: all ease-in 0.3s;
+  cursor: pointer;
+  border: none;
+  background: transparent;
 `;
 
 export const Row = styled.div`
