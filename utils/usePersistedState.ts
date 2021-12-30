@@ -7,13 +7,13 @@ type UsePersistedStateRes<T> = [
   Dispatch<SetStateAction<T>>,
 ]
 
-export const usePersistedState = <T>(key: string, initialState: any): UsePersistedStateRes<T> => {
+export const usePersistedState = <T>(key: string, initialState: T): UsePersistedStateRes<T> => {
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
     const persistedValue = localStorage.getItem(key);
 
-    setState(JSON.parse(persistedValue || initialState));
+    setState(JSON.parse((persistedValue || initialState) as unknown as string));
   }, []);
 
   useEffect(() => {
