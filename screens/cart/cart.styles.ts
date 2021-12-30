@@ -98,3 +98,14 @@ export const Row = styled.div`
   align-items: center;
   margin-left: 20px;
 `;
+
+export const TotalPrice = styled.p`
+  font-size: 16px;
+  font-weight: 500;
+  margin: 20px;
+  right: 20px;
+  color: #868CAA;
+
+  align-self: flex-end;
+
+`;

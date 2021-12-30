@@ -1,3 +1,3 @@
-export interface Categories {
-  [index: string]: string;
-}
+import { GenericObject } from './generic-object-type';
+
+export interface Categories extends GenericObject{}

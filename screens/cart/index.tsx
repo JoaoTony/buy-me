@@ -1,10 +1,11 @@
 import { FC, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { Container, Title } from './cart.styles';
+import { Container, Title, TotalPrice } from './cart.styles';
 import CartItem from './cart.item';
 import { useSwr } from '../../api/useSwr';
 import { CardProps } from '../../types/card.props';
+import { totalPrice } from './cart.utils';
 
 const Cart: FC = () => {
   const { cart } = useSelector((state: {cart: Array<{ id: number }>}) => state);
@@ -38,6 +39,13 @@ const Cart: FC = () => {
           category={item.category}
         />
       ))}
+
+      <TotalPrice>
+        Preço total:
+        {' $'}
+        {cartData && cartData[0]
+          ? totalPrice(cartData?.map((item) => ({ price: item?.price }))) : 0}
+      </TotalPrice>
 
     </Container>
   );
