@@ -2,7 +2,9 @@ import { FC, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 
-import { Container, CardList, Content } from './home.styles';
+import {
+  Container, CardList, Content, LoaderWrapper,
+} from './home.styles';
 import Navbar from '../../components/navbar';
 import Card from '../../components/card';
 import { useSwr } from '../../api/useSwr';
@@ -10,6 +12,7 @@ import { CardProps } from '../../types/card.props';
 import Details from '../details';
 import Cart from '../cart';
 import { addToCart } from '../../store/actions/cart-actions';
+import Loader from '../../components/loarder';
 
 const Home: FC<{handleTheme: () => void}> = ({ handleTheme }) => {
   const { data, loading } = useSwr<Array<CardProps>>('/products');
@@ -33,11 +36,13 @@ const Home: FC<{handleTheme: () => void}> = ({ handleTheme }) => {
       <Navbar handleTheme={handleTheme} />
 
       <Content>
-        {!id && !page && (
+        {!id && !page && loading && (
+          <LoaderWrapper><Loader /></LoaderWrapper>
+        )}
+
+        {!id && !page && data && (
           <CardList>
-            {loading ? (
-              <div>carregando...</div>
-            ) : data.map((item) => (
+            {data.map((item) => (
               <Card
                 key={item.id}
                 id={item.id.toString()}
@@ -47,7 +52,6 @@ const Home: FC<{handleTheme: () => void}> = ({ handleTheme }) => {
                 handleAddToCart={handleAddToCart}
               />
             ))}
-
           </CardList>
         )}
 
