@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import { createStore } from 'redux';
 import { reducers } from './reducers';
+import {} from 'redux-persist';
 
 const store = createStore(
   reducers,
