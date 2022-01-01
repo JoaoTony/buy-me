@@ -1,7 +1,7 @@
 /* eslint-disable default-param-last */
 import { actionsType } from '../../constants/redux-actions-types';
 
-const INITIAL_STATE: Array<{ id: number }> = [{ id: 8 }, { id: 1 }];
+const INITIAL_STATE: Array<{ id: number }> = [];
 
 export const cartReducer = (state = INITIAL_STATE, { type, payload }: any) => {
   switch (type) {
