@@ -10,7 +10,7 @@ const NavBar: FC<{handleTheme: () => void}> = ({ handleTheme }) => (
   <Nav>
     <Logo onClick={() => Router.push('/')}>BUYME</Logo>
     <Row>
-      <CartBtn onClick={() => Router.push('/cart/0')}>
+      <CartBtn onClick={() => Router.push('/cart')}>
         <img src="/car.png" alt="" />
       </CartBtn>
       <CustomSwitch handleTheme={handleTheme} />
