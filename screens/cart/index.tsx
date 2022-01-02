@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { Container, Title, TotalPrice } from './cart.styles';
 import CartItem from './cart.item';
-import { useSwr } from '../../api/useSwr';
+import { useSwr } from '../../services/remote/useSwr';
 import { CardProps } from '../../types/card.props';
 import { totalPrice } from './cart.utils';
 

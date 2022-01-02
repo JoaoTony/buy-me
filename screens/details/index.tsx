@@ -16,19 +16,20 @@ import {
   Category,
   AddToCarButton,
 } from './details.styles';
-import { useSwr } from '../../api/useSwr';
 import { CardProps } from '../../types/card.props';
 import Stars from '../../components/starts';
 import { CATEGORY } from '../../utils/translete-categories';
+import { useGetProducDetails } from '../../services/remote/get-product-details';
+import { useAddProductToCart } from '../../services/product/add-to-cart';
 
-const Details: FC<{ handleAddToCart: (_productId: number) => void}> = ({ handleAddToCart }) => {
+const Details: FC<{ id: number}> = ({ id }) => {
   const [product, setProduct] = useState<CardProps>();
-  const { data } = useSwr<Array<CardProps>>('/products');
+  const getPropduct = useGetProducDetails(id);
   const router = useRouter();
 
   useEffect(() => {
-    setProduct(data?.find((item) => item.id === Number(router.query.id)));
-  }, [router, data]);
+    setProduct(getPropduct);
+  }, [router, getPropduct]);
 
   return (
     <Container>
@@ -62,7 +63,7 @@ const Details: FC<{ handleAddToCart: (_productId: number) => void}> = ({ handleA
           </Price>
           <Description>{product?.description}</Description>
 
-          <AddToCarButton onClick={() => product?.id && handleAddToCart(product?.id)}>
+          <AddToCarButton onClick={() => useAddProductToCart(id)}>
             Adicionar ao carrinho
           </AddToCarButton>
         </Column>

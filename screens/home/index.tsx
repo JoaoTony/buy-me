@@ -5,7 +5,7 @@ import {
   Container, CardList, Content, LoaderWrapper,
 } from './home.styles';
 import Card from '../../components/card';
-import { useSwr } from '../../api/useSwr';
+import { useSwr } from '../../services/remote/useSwr';
 import { CardProps } from '../../types/card.props';
 import { addToCart } from '../../store/actions/cart-actions';
 import Loader from '../../components/loarder';
