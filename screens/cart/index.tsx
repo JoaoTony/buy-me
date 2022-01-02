@@ -1,34 +1,25 @@
 import { FC, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import { Container, Title, TotalPrice } from './cart.styles';
 import CartItem from './cart.item';
-import { useSwr } from '../../services/remote/useSwr';
 import { CardProps } from '../../types/card.props';
 import { totalPrice } from './cart.utils';
+import { useGetCartProducts } from '../../services/product/get-cart-products';
 
 const Cart: FC = () => {
-  const { cart } = useSelector((state: {cart: Array<{ id: number }>}) => state);
-  const { data, loading } = useSwr<Array<CardProps>>('/products');
   const [cartData, setCartData] = useState<Array<CardProps>>();
 
-  useEffect(() => {
-    const filterData = () => {
-      const arr: Array<CardProps> = [];
-      cart.forEach((item) => {
-        arr.push(data?.find((el) => el.id === item.id) as CardProps);
-        setCartData(arr);
-      });
-    };
+  const getCartProducts = useGetCartProducts();
 
-    filterData();
-  }, [data]);
+  useEffect(() => {
+    setCartData(getCartProducts.data);
+  }, [getCartProducts.loading]);
 
   return (
     <Container>
       <Title>Carrinho de Comporas</Title>
 
-      {!loading && cartData && cartData[0]?.id && cartData?.map((item) => (
+      {!getCartProducts.loading && cartData && cartData[0]?.id && cartData?.map((item) => (
         <CartItem
           key={item?.id}
           image={item.image}

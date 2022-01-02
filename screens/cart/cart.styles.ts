@@ -5,6 +5,9 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  padding: 0 16%;
+  padding-top: 200px;
+  padding-bottom:  100px;
 `;
 
 export const Title = styled.h1`
