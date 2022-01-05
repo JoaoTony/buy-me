@@ -1,4 +1,4 @@
-import { actionsType } from '../../constants/redux-actions-types';
+import { actionsType } from '../../../constants/redux-actions-types';
 
 export const setProducts = (products: any) => ({
   type: actionsType.SET_PRODUCTS,

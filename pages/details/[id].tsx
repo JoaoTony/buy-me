@@ -5,6 +5,7 @@ import DetailsComponent from '../../screens/details';
 
 const Details: FC<{id: string}> = (props) => {
   const { id } = props;
+
   return (
     <>
       <Head>

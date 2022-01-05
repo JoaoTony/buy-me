@@ -1,5 +1,9 @@
 import {
-  useState, useEffect, Dispatch, SetStateAction,
+  useState,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+  useCallback,
 } from 'react';
 
 type UsePersistedStateRes<T> = [
@@ -9,6 +13,10 @@ type UsePersistedStateRes<T> = [
 
 export const usePersistedState = <T>(key: string, initialState: T): UsePersistedStateRes<T> => {
   const [state, setState] = useState(initialState);
+
+  const handleState = useCallback((theme: T) => {
+    setState(theme);
+  }, [state]);
 
   useEffect(() => {
     const persistedValue = localStorage.getItem(key);
@@ -20,5 +28,5 @@ export const usePersistedState = <T>(key: string, initialState: T): UsePersisted
     localStorage.setItem(key, JSON.stringify(state));
   }, [state, key]);
 
-  return [state, setState];
+  return [state, handleState as Dispatch<SetStateAction<T>>];
 };

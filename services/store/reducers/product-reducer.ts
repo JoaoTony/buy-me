@@ -1,5 +1,5 @@
 /* eslint-disable default-param-last */
-import { actionsType } from '../../constants/redux-actions-types';
+import { actionsType } from '../../../constants/redux-actions-types';
 
 const INITIAL_STATE = {
   products: [],

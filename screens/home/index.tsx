@@ -7,7 +7,7 @@ import {
 import Card from '../../components/card';
 import { useSwr } from '../../services/remote/useSwr';
 import { CardProps } from '../../types/card.props';
-import { addToCart } from '../../store/actions/cart-actions';
+import { addToCart } from '../../services/store/actions/cart-actions';
 import Loader from '../../components/loarder';
 
 const Home: FC = () => {

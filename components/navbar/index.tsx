@@ -6,14 +6,16 @@ import {
   Nav, Logo, CartBtn, Row,
 } from './navbar.styles';
 
-const NavBar: FC<{handleTheme: () => void}> = ({ handleTheme }) => (
+const hideForNow = false;
+
+const NavBar: FC = () => (
   <Nav>
     <Logo onClick={() => Router.push('/')}>BUYME</Logo>
     <Row>
       <CartBtn onClick={() => Router.push('/cart')}>
         <img src="/car.png" alt="" />
       </CartBtn>
-      <CustomSwitch handleTheme={handleTheme} />
+      {hideForNow && <CustomSwitch />}
     </Row>
   </Nav>
 );
