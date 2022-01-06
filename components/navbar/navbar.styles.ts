@@ -37,8 +37,26 @@ export const CartBtn = styled.button`
   border: none;
   background: transparent;
   margin-right: 10px;
+  position: relative;
 
   cursor: pointer;
+
+  .floating {
+    width: 16px;
+    height: 16px;
+    right: -5px;
+    top: -5px;
+
+    color: #fff;
+    font-size: 10px;
+
+    border-radius: 50%;
+    position: absolute;
+    z-index: 2;
+
+    background: red;
+    padding: 2px;
+  }
 
   img{
     width: 100%;

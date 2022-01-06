@@ -4,9 +4,10 @@ import { FC, useEffect, useState } from 'react';
 import { Container, Title, TotalPrice } from './cart.styles';
 import CartItem from './cart.item';
 import { CardProps } from '../../types/card.props';
-import { totalPrice as getTotalPrice, removeDuplicatedProducts } from './cart.utils';
+import { totalPrice as getTotalPrice } from './cart.utils';
 import { useGetCartProducts } from '../../services/product/get-cart-products';
 import { ItemCartWithQuantity } from './cart.types';
+import { removeDuplicatedProducts } from '../../utils/remove-duplicated-products';
 
 const Cart: FC = () => {
   const [cartData, setCartData] = useState<Array<CardProps>>();
@@ -26,9 +27,9 @@ const Cart: FC = () => {
       {!getCartProducts.loading
       && cartData
       && removeDuplicatedProducts<ItemCartWithQuantity>(cartData)
-      && removeDuplicatedProducts<ItemCartWithQuantity>(cartData).map((item) => (
+      && removeDuplicatedProducts<ItemCartWithQuantity>(cartData).map((item, index) => (
         <CartItem
-          key={item.id}
+          key={index.toString()}
           image={item.image}
           title={item.title}
           price={item.price}
@@ -36,6 +37,7 @@ const Cart: FC = () => {
           rating={item.rating}
           category={item.category}
           quantity={item.quantity}
+          id={item.id}
         />
       ))}
 

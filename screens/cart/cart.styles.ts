@@ -117,3 +117,9 @@ export const TotalPrice = styled.p`
   align-self: flex-end;
 
 `;
+
+export const RemoveItemBtn = styled.button`
+  position: absolute;
+
+  font-size: 14px;
+`;
