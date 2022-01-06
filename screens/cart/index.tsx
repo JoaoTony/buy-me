@@ -3,13 +3,16 @@ import { FC, useEffect, useState } from 'react';
 import { Container, Title, TotalPrice } from './cart.styles';
 import CartItem from './cart.item';
 import { CardProps } from '../../types/card.props';
-import { totalPrice } from './cart.utils';
+import { totalPrice, removeDuplicatedProducts } from './cart.utils';
 import { useGetCartProducts } from '../../services/product/get-cart-products';
 
 const Cart: FC = () => {
   const [cartData, setCartData] = useState<Array<CardProps>>();
 
   const getCartProducts = useGetCartProducts();
+
+  console.log(getCartProducts.data);
+  console.log(removeDuplicatedProducts(getCartProducts.data));
 
   useEffect(() => {
     setCartData(getCartProducts.data);
