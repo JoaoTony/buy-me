@@ -1,3 +1,5 @@
 import { CardProps } from '../../types/card.props';
 
-export interface ItemCartProps extends Omit<CardProps, 'id'>{}
+export interface ItemCartWithQuantity extends CardProps {
+  quantity: number
+}

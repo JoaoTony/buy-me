@@ -14,15 +14,16 @@ import {
 } from './cart.styles';
 import { CATEGORY } from '../../utils/translete-categories';
 
-import { ItemCartProps } from './cart.types';
+import { ItemCartWithQuantity } from './cart.types';
 
-const CartItem: FC<ItemCartProps> = ({
+const CartItem: FC<Omit<ItemCartWithQuantity, 'id'>> = ({
   image,
   title,
   price,
   description,
   rating,
   category,
+  quantity,
 }) => (
   <Container>
     <ItemImage>
@@ -32,13 +33,13 @@ const CartItem: FC<ItemCartProps> = ({
       <ItemTitle>{title}</ItemTitle>
       <Category>{CATEGORY(category)}</Category>
       <Row>
-        <Stars rate={rating.rate} size={20} />
+        <Stars rate={rating?.rate} size={20} />
         <Raters>
-          {rating.rate}
+          {rating?.rate}
           {' '}
           -
           (
-          {rating.count}
+          {rating?.count}
           {' '}
           Avaliadores)
         </Raters>
@@ -49,6 +50,10 @@ const CartItem: FC<ItemCartProps> = ({
     <Price>
       $
       {price}
+      {' '}
+      (x
+      {quantity}
+      )
     </Price>
   </Container>
 );
