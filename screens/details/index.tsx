@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { FC, useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 import {
   Container,
@@ -25,11 +24,11 @@ import { useAddProductToCart } from '../../services/product/add-to-cart';
 const Details: FC<{ id: number}> = ({ id }) => {
   const [product, setProduct] = useState<CardProps>();
   const getPropduct = useGetProducDetails(id);
-  const router = useRouter();
+  const addProductToCart = useAddProductToCart(id);
 
   useEffect(() => {
     setProduct(getPropduct);
-  }, [router, getPropduct]);
+  }, [getPropduct]);
 
   return (
     <Container>
@@ -63,7 +62,7 @@ const Details: FC<{ id: number}> = ({ id }) => {
           </Price>
           <Description>{product?.description}</Description>
 
-          <AddToCarButton onClick={() => useAddProductToCart(id)}>
+          <AddToCarButton onClick={() => addProductToCart()}>
             Adicionar ao carrinho
           </AddToCarButton>
         </Column>

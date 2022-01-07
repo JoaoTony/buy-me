@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { useDispatch } from 'react-redux';
 
 import {
   Container, CardList, Content, LoaderWrapper,
@@ -7,22 +6,18 @@ import {
 import Card from '../../components/card';
 import { useSwr } from '../../services/remote/useSwr';
 import { CardProps } from '../../types/card.props';
-import { addToCart } from '../../services/store/actions/cart-actions';
 import Loader from '../../components/loarder';
 
 const Home: FC = () => {
   const { data, loading } = useSwr<Array<CardProps>>('/products');
-  const dispatch = useDispatch();
-
-  const handleAddToCart = (productId: number) => {
-    dispatch(addToCart({ id: productId }));
-  };
 
   return (
     <Container>
       <Content>
         {loading && (
-        <LoaderWrapper><Loader /></LoaderWrapper>
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
         )}
 
         {data && (
@@ -34,7 +29,6 @@ const Home: FC = () => {
               image={item.image}
               name={item.title}
               price={item.price.toString()}
-              handleAddToCart={handleAddToCart}
             />
           ))}
         </CardList>

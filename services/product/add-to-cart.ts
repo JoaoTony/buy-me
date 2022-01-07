@@ -3,5 +3,10 @@ import { addToCart } from '../store/actions/cart-actions';
 
 export const useAddProductToCart = (id: number) => {
   const dispatch = useDispatch();
-  dispatch(addToCart({ id }));
+
+  const handleDispatch = () => {
+    dispatch(addToCart({ id }));
+  };
+
+  return handleDispatch;
 };

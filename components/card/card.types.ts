@@ -4,5 +4,4 @@ export interface CardProps {
   image: string;
   name: string;
   price: string;
-  handleAddToCart: (_productId: number) => void
 }
