@@ -28,6 +28,12 @@ export const ItemOnCart = styled.div`
 
   border-top: 1px solid #F3F3F3;
   border-bottom: 1px solid #F3F3F3;
+
+  :hover{
+    .cart-item{
+      opacity: 1;
+    }
+  }
 `;
 
 export const ItemImage = styled.div`
@@ -120,6 +126,23 @@ export const TotalPrice = styled.p`
 
 export const RemoveItemBtn = styled.button`
   position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 16px;
+  height: 16px;
 
   font-size: 14px;
+  font-weight: bold;
+
+  border: none;
+  background: transparent;
+
+  background-image: url('/icon-delete-item.png');
+  background-size: 100%;
+  background-position: center;
+
+  transition: all ease-in 0.3s;
+
+  opacity: 0;
+  cursor: pointer;
 `;

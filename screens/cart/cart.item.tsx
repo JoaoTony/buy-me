@@ -35,7 +35,7 @@ const CartItem: FC<ItemCartWithQuantity> = ({
   return (
     <Container>
       <ItemImage>
-        <img src={image} alt="aa" />
+        <img src={image} alt={image} />
       </ItemImage>
       <Column>
         <ItemTitle>{title}</ItemTitle>
@@ -64,7 +64,7 @@ const CartItem: FC<ItemCartWithQuantity> = ({
         )
       </Price>
 
-      <RemoveItemBtn onClick={() => handleRemoveProduct()}>Remove</RemoveItemBtn>
+      <RemoveItemBtn className="cart-item" onClick={() => handleRemoveProduct()} />
     </Container>
   );
 };

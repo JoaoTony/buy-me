@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { FC, useEffect, useState } from 'react';
 
 import { Container, Title, TotalPrice } from './cart.styles';
