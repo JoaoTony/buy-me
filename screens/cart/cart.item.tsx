@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import Stars from '../../components/starts';
 import {
   ItemOnCart as Container,
@@ -14,9 +13,8 @@ import {
   RemoveItemBtn,
 } from './cart.styles';
 import { CATEGORY } from '../../utils/translete-categories';
-import { removeElementFromList } from '../../utils/remove-element-from-array';
 import { ItemCartWithQuantity } from './cart.types';
-import { removeToCart } from '../../services/store/actions/cart-actions';
+import { useRemoveFromCart } from '../../services/product/remove-from-cart';
 
 const CartItem: FC<ItemCartWithQuantity> = ({
   image,
@@ -28,11 +26,10 @@ const CartItem: FC<ItemCartWithQuantity> = ({
   quantity,
   id,
 }) => {
-  // const { cart } = useSelector((state: {cart: Array<{ id: number }>}) => state);
-  // const dispatch = useDispatch();
+  const removeFromCart = useRemoveFromCart();
 
   const handleRemoveProduct = () => {
-    // dispatch(removeToCart(removeElementFromList(a, id)));
+    removeFromCart(id);
   };
 
   return (

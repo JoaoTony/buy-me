@@ -18,7 +18,7 @@ const Cart: FC = () => {
   useEffect(() => {
     setCartData(getCartProducts.data);
     setTotalPrice(getTotalPrice(getCartProducts.data?.map((item) => item?.price)));
-  }, [getCartProducts.loading]);
+  }, [getCartProducts.loading, getCartProducts.cart]);
 
   return (
     <Container>

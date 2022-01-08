@@ -16,8 +16,6 @@ const hideForNow = false;
 const NavBar: FC = () => {
   const getCartQuantity = useGetCartQuantity();
 
-  console.log(getCartQuantity);
-
   return (
     <Nav>
       <Logo onClick={() => Router.push('/')}>BUYME</Logo>

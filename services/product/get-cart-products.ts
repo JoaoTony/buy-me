@@ -14,5 +14,5 @@ export const useGetCartProducts = () => {
     return arr;
   };
 
-  return { data: filterData(), loading };
+  return { data: filterData(), loading, cart };
 };
